@@ -1,6 +1,4 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-Students should use this rubric: https://www.udacity.com/course/viewer#!/c-ud015/l-3072058665/m-3072588797
-
-for self-checking their submission.
+This Frogger-type game uses Javascript OOP techniques.  It takes keyboard input of up, down, left, right.  The player must reach the water without "collding" with the insect enemies!
