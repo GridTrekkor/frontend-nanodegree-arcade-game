@@ -100,6 +100,7 @@ var Engine = (function(global) {
      * the data/properties related to  the object. Do your drawing in your
      * render methods.
      */
+    // define vars for collision detection
     var enemyX, enemyY, playerY, deadRangeMin, deadRangeMax;
     function updateEntities(dt) {
 
@@ -199,6 +200,9 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
+        'images/char-cat-girl.png',
+        'images/char-horn-girl.png',
+        'images/char-pink-girl.png',
         'images/char-princess-girl.png'
     ]);
     Resources.onReady(init);

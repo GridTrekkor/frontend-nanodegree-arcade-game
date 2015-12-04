@@ -25,10 +25,10 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     if (this.x > 499) {
-        this.x = -100; // reset enemy when it reaches far right of screen
+        this.x = -100; // reset enemy position when it reaches far right of screen
     } else {
         this.x += this.speed * dt; // advance enemy along the screen
-        this.speed = getRandomInt(10, 200); // make enemies move at random speed
+        this.speed = getRandomInt(10, 1000); // make enemies move at random speed
     }
 
     //document.getElementById('enemy' + this.enemyNumber).innerHTML = "x = " + Math.round(this.x) + " || speed = " + this.speed;
@@ -47,7 +47,7 @@ Enemy.prototype.render = function() {
 var Player = function(x, y) {
     this.x = x;
     this.y = y;
-    this.sprite = 'images/char-princess-girl.png';
+    this.sprite = 'images/char-horn-girl.png';
 };
 
 // link Player proto to Enemy proto in order to inherit render method
@@ -89,14 +89,19 @@ Player.prototype.update = function(key) {
 
 // handle keyboard input and pass it to the update function
 Player.prototype.handleInput = function(key) {
-    player.update(key);
+    if (!gameOver) player.update(key); // don't accept keyboard input if game is over
 };
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-var allEnemies = [ new Enemy(0, 55, 40, 1), new Enemy(200, 135, 20, 2), new Enemy(100, 215, 60, 3) ];
+var allEnemies = [];
+allEnemies.push(new Enemy(getRandomInt(0, 400), 55, 40, 1));
+allEnemies.push(new Enemy(getRandomInt(0, 400), 135, 20, 2));
+allEnemies.push(new Enemy(getRandomInt(0, 400), 135, 4));
+allEnemies.push(new Enemy(getRandomInt(0, 400), 215, 60, 3));
+
 var player = new Player(200, 375);
 
 // This listens for key presses and sends the keys to your
